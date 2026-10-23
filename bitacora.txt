@@ -1,0 +1,14 @@
+
+REGISTRO EN LA BITACORA 
+URL: http://127.0.0.1:5500/index.html
+PROTOCOLO: http 
+HOST: 127.0.0.1
+PUERTO: 5500
+RUTA: index.html
+METODO DE PETICION: GET
+CODIGO DE ESTATUS: 304 Not Modified
+
+con /promociones.html sale 404 Not Found 
+
+el rol de html serviran para darle estructura a la pagina, css sera el disenador y javascript se encargara de la interaccion
+
