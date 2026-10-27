@@ -1,5 +1,4 @@
-
-REGISTRO EN LA BITACORA 
+EGISTRO EN LA BITACORA 
 URL: http://127.0.0.1:5500/index.html
 PROTOCOLO: http 
 HOST: 127.0.0.1
@@ -11,4 +10,23 @@ CODIGO DE ESTATUS: 304 Not Modified
 con /promociones.html sale 404 Not Found 
 
 el rol de html serviran para darle estructura a la pagina, css sera el disenador y javascript se encargara de la interaccion
+
+MENÚ DESDE index.html
+index.html -> index.html
+index.html -> paginas/tarifas.html
+index.html -> paginas/reservas.html
+
+MENÚ DESDE paginas/tarifas.html
+tarifas.html -> ../index.html
+tarifas.html -> tarifas.html
+tarifas.html -> reservas.html
+
+MENÚ DESDE paginas/reservas.html
+reservas.html -> ../index.html
+reservas.html -> tarifas.html
+reservas.html -> reservas.html
+
+BOTONES "RESERVAR AHORA"
+index.html -> paginas/reservas.html
+tarifas.html -> reservas.html 
 
