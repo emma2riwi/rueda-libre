@@ -1,4 +1,4 @@
-EGISTRO EN LA BITACORA 
+REGISTRO EN LA BITACORA 
 URL: http://127.0.0.1:5500/index.html
 PROTOCOLO: http 
 HOST: 127.0.0.1
@@ -30,3 +30,123 @@ BOTONES "RESERVAR AHORA"
 index.html -> paginas/reservas.html
 tarifas.html -> reservas.html 
 
+TABLA DE PRUEBAS - FORMULARIO DE ALQUILER DE BICICLETAS
+
+Prueba 1
+Campo: Nombre
+Dato de prueba: (vacío)
+Resultado esperado: No se envía el formulario y se muestra el mensaje "Completa este campo".
+Resultado obtenido:
+
+Prueba 2
+Campo: Número de documento
+Dato de prueba: 12345
+Resultado esperado: No se envía el formulario porque el documento tiene menos de 6 dígitos.
+Resultado obtenido:
+
+Prueba 3
+Campo: Número de documento
+Dato de prueba: 10364A5892
+Resultado esperado: No se envía el formulario porque el documento contiene una letra.
+Resultado obtenido:
+
+Prueba 4
+Campo: Correo electrónico
+Dato de prueba: pepitoejemplo.com
+Resultado esperado: No se envía el formulario porque el correo no tiene el símbolo @.
+Resultado obtenido:
+
+Prueba 5
+Campo: Teléfono
+Dato de prueba: 2104567890
+Resultado esperado: No se envía el formulario porque el número no empieza por 3, y se muestra el mensaje del title.
+Resultado obtenido:
+
+Prueba 6
+Campo: Teléfono
+Dato de prueba: 300123456
+Resultado esperado: No se envía el formulario porque el número tiene 9 dígitos en lugar de 10.
+Resultado obtenido:
+
+Prueba 7
+Campo: Teléfono
+Dato de prueba: (vacío)
+Resultado esperado: No se envía el formulario porque el teléfono es obligatorio.
+Resultado obtenido:
+
+Prueba 8
+Campo: Fecha de alquiler
+Dato de prueba: 15/10/2026
+Resultado esperado: El calendario no permite elegir la fecha o el formulario no se envía, porque está antes del 1 de noviembre de 2026.
+Resultado obtenido:
+
+Prueba 9
+Campo: Fecha de alquiler
+Dato de prueba: 05/01/2027
+Resultado esperado: El calendario no permite elegir la fecha o el formulario no se envía, porque está después del 31 de diciembre de 2026.
+Resultado obtenido:
+
+Prueba 10
+Campo: Tipo de bicicleta
+Dato de prueba: Clic en el texto "Montaña"
+Resultado esperado: Se marca la opción Montaña.
+Resultado obtenido:
+
+Prueba 11
+Campo: Tipo de bicicleta
+Dato de prueba: Ninguna opción marcada
+Resultado esperado: No se envía el formulario y se pide elegir una opción.
+Resultado obtenido:
+
+Prueba 12
+Campo: Plan
+Dato de prueba: "Seleccionar..."
+Resultado esperado: No se envía el formulario y se pide elegir un plan.
+Resultado:
+
+Prueba 13
+Campo: Cantidad de bicicletas
+Dato de prueba: 7
+Resultado esperado: No se envía el formulario porque el máximo permitido es 6.
+Resultado obtenido:
+
+Prueba 14
+Campo: Confirmación
+Dato de prueba: Casilla sin marcar
+Resultado esperado: No se envía el formulario y se pide marcar la casilla.
+Resultado obtenido:
+
+Hallazgo: Rutas de acceso incorrectas entre páginas
+Criterio revisado: Funcionamiento de los enlaces y navegación
+Ubicación: Enlaces de navegación de algunas páginas del sitio.
+Problema encontrado: Desde algunas páginas, los enlaces no llevaban al destino correcto porque las rutas relativas estaban mal escritas y no tenían en cuenta la carpeta donde se encuentra cada archivo. Al hacer clic, el navegador mostraba un error de archivo no encontrado, lo que impedía que el usuario pudiera moverse por el sitio.
+Corrección: Se revisó la estructura de carpetas del proyecto y se ajustaron las rutas relativas de cada enlace según la ubicación de la página de origen (por ejemplo, usando "../" para subir un nivel de carpeta cuando era necesario). Después se verificó haciendo clic en cada enlace desde todas las páginas, confirmando que todos llevan al destino correcto.
+
+
+Prueba de color
+texto blanco sobre Verde Ruta: apta para texto normal y texto grande 5.31
+blanco sobre Naranja Pedal: no pasa ni texto normal ni texto grande 2,.21 
+Azul Noche sobre Naranja Pedal: apta para texto normal y texto grande 7.2 
+Azul Noche sobre Crema: apta para texto normal y texto grande 14.8
+Gris Asfalto sobre Crema: apta para texto normal y texto grande 5.56 
+Verde Ruta sobre Crema: apta para texto normal y texto grande 4.93 
+Naranja Pedal sobre Crema: no apta para texto normal ni para texto grande 2.05 
+blanco sobre Azul Noche: es apta para texto normal y para texto grande 15.97 
+
+Fondo: Crema 
+#FAF6EF; tarjetas en blanco 
+#FFFFFF
+Texto y títulos: Azul Noche 
+#14213D
+Texto secundario: Gris Asfalto 
+#5B6470
+Encabezado y footer: fondo Azul Noche con texto blanco
+Enlaces: Verde Ruta 
+#1E7A4F, subrayados (en el footer, blancos)
+Botón principal: fondo Verde Ruta con texto blanco
+Destacados: fondo Naranja Pedal 
+#F39A2B con texto Azul Noche
+Foco de teclado: contorno Azul Noche
+Errores del formulario: rojo 
+#B3261E con mensaje en texto
+No usar: texto blanco sobre naranja, texto naranja sobre crema ni contornos naranjas, porque no pasan el contraste. 
