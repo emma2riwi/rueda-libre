@@ -97,26 +97,27 @@ main section {
 
 
 /* ---------- 3. ENCABEZADO Y NAVEGACIÓN ---------- */
+/* Semana 2 · MiniReto 1: nombre en un extremo y menú en el otro (Flexbox) */
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--espacio-mediano);
   background-color: var(--azul-noche);
   color: var(--blanco);
-  padding: var(--espacio-mediano);
+  padding: var(--espacio-mediano) var(--espacio-grande);
   border-bottom: 4px solid var(--naranja-pedal);
-  text-align: center;
 }
 
-/* Logo a la izquierda del nombre, ubicado con position */
+/* Logo y nombre en fila, centrados verticalmente entre sí */
 .marca {
-  position: relative;
-  display: inline-block;
-  min-height: 3.5rem;
-  padding-left: 4.25rem;
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-mediano);
 }
 
 .marca img {
-  position: absolute;
-  top: 0;
-  left: 0;
   width: 3.5rem;
   border-radius: var(--radio-pequeno);
 }
@@ -124,18 +125,16 @@ header {
 .marca h1 {
   margin: 0;
   font-size: 1.75rem;
-  line-height: 3.5rem;
 }
 
+/* Menú: contenedor flexible; el gap reemplaza los márgenes y el inline-block de la semana 1 */
 #menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-pequeno);
   list-style: none;
   padding: 0;
-  margin: var(--espacio-mediano) 0 0;
-}
-
-#menu li {
-  display: inline-block;
-  margin: var(--espacio-xs);
+  margin: 0;
 }
 
 /* Regla del compañero (MiniReto 10) adaptada a la paleta */
@@ -373,16 +372,26 @@ select:focus:invalid {
 
 
 /* ---------- 6. PIE DE PÁGINA ---------- */
+/* Semana 2 · MiniReto 1: tres bloques en fila, alineados por arriba (Flexbox) */
 footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--espacio-grande);
   background-color: var(--azul-noche);
   color: var(--blanco);
-  padding: var(--espacio-grande) var(--espacio-mediano) var(--espacio-xl);
+  padding: var(--espacio-grande) var(--espacio-grande) var(--espacio-xl);
   border-top: 4px solid var(--naranja-pedal);
-  text-align: center;
 }
 
 footer h2 {
   margin-top: 0;
+  font-size: 1.25rem;
+}
+
+.pie-bloque p {
+  margin: 0 0 var(--espacio-pequeno);
 }
 
 footer a {

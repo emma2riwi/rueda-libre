@@ -243,3 +243,19 @@ AUDITORÍA DE ACCESIBILIDAD (MiniReto 8) - hallazgos y correcciones
 6. Radios con el mismo id: al hacer clic en "Montaña" se marcaba "Urbana" -> ids únicos y agrupados en fieldset con legend.
 7. Enlace mailto vacío y con espacio -> mailto:contacto@ruedalibre.com.
 8. Recorrido con teclado: todos los enlaces, campos y botones reciben foco visible.
+
+============================================================
+SEMANA 2 · DÍA 1 · FLEXBOX, GRID Y RESPONSIVE
+============================================================
+
+MINIRETO 1 · Encabezado y pie con Flexbox
+- header: display flex + justify-content: space-between (nombre a la izquierda, menú a la derecha) + align-items: center (misma altura).
+- .marca: flex para poner logo y nombre en fila; ya no necesita el position: absolute de la semana 1.
+- #menu: display flex + gap. Se borró el inline-block y el margin de los li.
+- footer: flex con tres bloques (marca, contacto, horario), align-items: flex-start para alinearlos por arriba.
+
+Qué pasa al estrechar la ventana (medido en DevTools):
+- 1280px: nombre y menú en la misma fila; el pie en 3 bloques en una sola fila.
+- 900px: el encabezado sigue en una fila; el pie pasa a 2 filas (el horario baja), gracias a flex-wrap.
+- 600px: el menú ya no cabe al lado del nombre y baja completo debajo del logo (flex-wrap del header); el pie queda en 3 filas.
+- 380px: los enlaces del menú también bajan de línea entre ellos (flex-wrap del #menu) en vez de salirse de la pantalla.
