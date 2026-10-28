@@ -259,3 +259,17 @@ Qué pasa al estrechar la ventana (medido en DevTools):
 - 900px: el encabezado sigue en una fila; el pie pasa a 2 filas (el horario baja), gracias a flex-wrap.
 - 600px: el menú ya no cabe al lado del nombre y baja completo debajo del logo (flex-wrap del header); el pie queda en 3 filas.
 - 380px: los enlaces del menú también bajan de línea entre ellos (flex-wrap del #menu) en vez de salirse de la pantalla.
+
+MINIRETO 2 · La flota en cuadrícula (Grid)
+- .grilla: display grid + grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)) + gap.
+  Se lee: "pon tantas columnas como quepan; cada una mide mínimo 16rem y se reparten el espacio que sobra (1fr)". Sin media queries.
+- Cada .tarjeta dentro de la grilla es flex en columna. El enlace "Reservar" tiene margin-top: auto, que lo empuja al final aunque las descripciones tengan largos distintos.
+- Las tarjetas conservan el padding, el borde y el border-radius de la semana 1.
+- El séptimo modelo (Tándem) se agregó solo en el HTML y la grilla lo acomodó sin tocar el CSS.
+- La misma clase .grilla se reutilizó en "Nuestros servicios".
+
+Columnas observadas (modo dispositivo de DevTools):
+- 1280px: 4 columnas
+- 900px: 3 columnas
+- 500px: 1 columna
+En las tres medidas, las tarjetas de una misma fila tienen la misma altura y los botones "Reservar" quedan alineados.

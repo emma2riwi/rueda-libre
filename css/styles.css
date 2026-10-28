@@ -86,13 +86,18 @@ footer a:focus,
 
 /* Contenido principal: una sola columna centrada */
 main {
-  max-width: 48rem;
+  max-width: 72rem;
   margin: 0 auto;
   padding: var(--espacio-grande) var(--espacio-mediano);
 }
 
 main section {
   margin-bottom: var(--espacio-grande);
+}
+
+/* Textos sueltos con un ancho cómodo de lectura */
+main section > p {
+  max-width: 45rem;
 }
 
 
@@ -211,6 +216,33 @@ header {
 
 .tarjeta h3 {
   margin: var(--espacio-mediano) 0 var(--espacio-pequeno);
+}
+
+/* Semana 2 · MiniReto 2: cuadrícula que se adapta sola (Grid, sin media queries) */
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--espacio-grande);
+}
+
+/* Dentro de la grilla, cada tarjeta acomoda su contenido en columna (Flexbox) */
+.grilla .tarjeta {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 0;
+}
+
+/* margin-top: auto empuja el enlace al final de la tarjeta,
+   aunque las descripciones tengan largos distintos */
+.grilla .tarjeta > a:last-child {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.precio {
+  font-weight: 600;
+  color: var(--verde-ruta);
 }
 
 /* Etiqueta "Nuevo": anclada a la esquina de su tarjeta sin mover el contenido */
