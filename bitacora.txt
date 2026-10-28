@@ -342,3 +342,23 @@ MINIRETO 6 · Sin una línea de CSS: utilidades
 3. flex-md-row: cambia flex-direction a row solo desde md.
 4. gap-4: espacio entre hijos de un flex o grid (1.5rem).
 5. text-md-start: alinea el texto a la izquierda desde md (en celular queda centrado con text-center).
+
+MINIRETO 7 · Inicio migra a Bootstrap
+- index.html carga bootstrap.min.css primero y después css/styles.css. El bundle de JS va al final del body.
+- Portada: .row align-items-center g-4 con dos col-12 col-md-6.
+- Servicios: row g-4 + col-12 col-md-6. Flota: col-12 col-sm-6 col-lg-4 col-xl-3; la tarjeta usa h-100 d-flex flex-column y el botón mt-auto.
+- Rutas: col-12 col-md-4. Beneficios ("¿Por qué Rueda Libre?" del reto 6) y la franja "¿Listo para rodar?" pasaron a inicio con colores de mi marca.
+- Borré de styles.css: .grilla, .grilla .tarjeta, el enlace con margin-top: auto, el display grid de .portada y .rutas, y sus media queries.
+- Marqué con un comentario .reservas y .fila, que todavía usa reservas.html.
+
+Conflictos que encontré con DevTools (Styles):
+1. Los h3 de las tarjetas salían enormes: el reboot de Bootstrap le da a h3 font-size: 1.75rem, y yo nunca les había puesto tamaño.
+   Solución: .tarjeta h3 { font-size: 1.25rem; }. Gana porque .tarjeta h3 (0,1,1) tiene más especificidad que h3 (0,0,1).
+2. Los títulos quedaban pegados al texto: Bootstrap pone margin-bottom: .5rem a todos los h1-h6.
+   Solución: h2 { margin-bottom: var(--espacio-mediano); }. Empatan en especificidad y gana el mío porque styles.css se carga después.
+3. Enlaces y títulos: Bootstrap pone los enlaces en azul (a { color: var(--bs-link-color) }) y los títulos en font-weight 500.
+   En Styles aparecen tachados porque mis reglas a { color: verde ruta } y h1-h4 { font-weight: 700 } están en styles.css, que carga después.
+   Si cambio el orden de los <link>, se pierde mi identidad.
+Ninguno se resolvió con !important.
+
+Probado a 360px, 768px y 1280px: sin scroll horizontal, se mantienen Montserrat, Open Sans y los colores de marca.

@@ -52,6 +52,10 @@ h4 {
   line-height: 1.2;
 }
 
+h2 {
+  margin-bottom: var(--espacio-mediano);
+}
+
 a {
   color: var(--verde-ruta);
 }
@@ -78,7 +82,8 @@ select:focus {
 /* Sobre fondos oscuros el contorno azul no se ve: se usa naranja (7.2:1) */
 header a:focus,
 footer a:focus,
-.portada a:focus {
+.portada a:focus,
+.franja a:focus {
   outline-color: var(--naranja-pedal);
 }
 
@@ -169,11 +174,8 @@ header {
 /* ---------- 4. COMPONENTES ---------- */
 
 .portada {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: center;
-  gap: var(--espacio-grande);
   min-height: 60vh;
+  margin-bottom: var(--espacio-grande);
   padding: var(--espacio-grande) var(--espacio-mediano);
   border-radius: var(--radio);
   background-color: var(--azul-noche);
@@ -195,17 +197,6 @@ header {
   border-radius: var(--radio-pequeno);
 }
 
-.rutas {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--espacio-grande);
-  margin-bottom: var(--espacio-mediano);
-}
-
-.rutas .tarjeta {
-  margin-bottom: 0;
-}
-
 .nivel {
   margin: 0;
   color: var(--gris-asfalto);
@@ -214,7 +205,6 @@ header {
 /* Tarjetas de servicios */
 .tarjeta {
   position: relative;
-  margin-bottom: var(--espacio-grande);
   padding: var(--espacio-mediano);
   border: 1px solid var(--borde);
   border-radius: var(--radio);
@@ -228,24 +218,7 @@ header {
 
 .tarjeta h3 {
   margin: var(--espacio-mediano) 0 var(--espacio-pequeno);
-}
-
-.grilla {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-  gap: var(--espacio-grande);
-}
-
-.grilla .tarjeta {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  margin-bottom: 0;
-}
-
-.grilla .tarjeta > a:last-child {
-  margin-top: auto;
-  align-self: flex-start;
+  font-size: 1.25rem;
 }
 
 .precio {
@@ -286,14 +259,34 @@ button:hover {
   color: var(--azul-noche);
 }
 
-/* En la portada (fondo azul) el botón va en naranja */
-.portada .boton {
+/* En la portada y la franja (fondo azul) el botón va en naranja */
+.portada .boton,
+.franja .boton {
   background-color: var(--naranja-pedal);
   color: var(--azul-noche);
 }
 
-.portada .boton:hover {
+.portada .boton:hover,
+.franja .boton:hover {
   background-color: var(--blanco);
+}
+
+.dato {
+  font-family: var(--fuente-secundaria);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--verde-ruta);
+}
+
+.franja {
+  padding: var(--espacio-grande);
+  border-radius: var(--radio);
+  background-color: var(--azul-noche);
+  color: var(--blanco);
+}
+
+.franja img {
+  border-radius: var(--radio-pequeno);
 }
 
 /* Tablas */
@@ -335,6 +328,7 @@ aside {
 
 /* ---------- 5. FORMULARIO ---------- */
 
+/* lo usa reservas.html */
 .reservas {
   display: grid;
   grid-template-columns: 1fr;
@@ -342,6 +336,7 @@ aside {
   gap: var(--espacio-grande);
 }
 
+/* lo usa reservas.html */
 .fila {
   display: grid;
   grid-template-columns: 1fr;
@@ -503,19 +498,16 @@ footer a:hover {
   }
 
   .portada {
-    grid-template-columns: 1fr 1fr;
     padding: var(--espacio-grande);
   }
 
-  .rutas {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .reservas {
+  /* lo usa reservas.html */
+.reservas {
     grid-template-columns: 2fr 1fr;
   }
 
-  .fila {
+  /* lo usa reservas.html */
+.fila {
     grid-template-columns: 1fr 1fr;
   }
 
