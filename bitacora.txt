@@ -325,3 +325,20 @@ Comparación:
 - Bootstrap: 0 líneas de CSS; 7 clases (container, row, g-4, col-12, col-sm-6, col-lg-4, col-xl-3).
 - Lo que me dio sin esfuerzo: breakpoints ya definidos y gutters iguales con una sola clase.
 - Lo que perdí: con auto-fit las columnas salían solas según el espacio; en Bootstrap tengo que decir cuántas columnas hay en cada breakpoint. Además, el HTML queda lleno de clases.
+
+MINIRETO 6 · Sin una línea de CSS: utilidades
+- "¿Por qué Rueda Libre?": título text-center, 4 beneficios en row g-4 con col-12 col-md-6 col-lg-3.
+  Cada beneficio tiene un dato destacado (fs-2 fw-bold text-success), una descripción corta (small text-secondary), un título (fs-5 fw-bold) y un texto.
+- Franja "¿Listo para rodar?": d-flex flex-column flex-md-row justify-content-between align-items-center gap-4 text-bg-dark.
+  En celular va en columna y desde md en fila.
+- La imagen decorativa usa d-none d-md-block: no aparece en celular y aparece desde md.
+- El enlace destacado lleva solo utilidades (bg-warning text-dark fw-semibold px-4 py-3 rounded-3), sin el componente btn.
+- Colores: con solo utilidades no puedo usar los colores exactos de mi marca. Usé los más cercanos de mi mapa: text-bg-dark en lugar de azul noche, text-success en lugar de verde ruta y bg-warning con texto oscuro en lugar de naranja con azul (cumple contraste).
+- Revisado: 0 etiquetas <style>, 0 style="" y ninguna clase inventada.
+
+5 clases que busqué en la documentación:
+1. text-bg-dark: fondo oscuro y, automáticamente, un color de texto con buen contraste.
+2. d-none d-md-block: oculta el elemento y lo vuelve a mostrar desde el breakpoint md (768px).
+3. flex-md-row: cambia flex-direction a row solo desde md.
+4. gap-4: espacio entre hijos de un flex o grid (1.5rem).
+5. text-md-start: alinea el texto a la izquierda desde md (en celular queda centrado con text-center).
