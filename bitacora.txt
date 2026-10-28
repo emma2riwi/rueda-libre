@@ -308,3 +308,20 @@ Problemas que encontré a 360px y cómo los resolví:
 
 Revisado con modo dispositivo: 360px, 768px y 1280px sin scroll horizontal en las 3 páginas.
 Pendiente: publicar la v1.5 en GitHub Pages y abrirla en mi celular.
+
+============================================================
+SEMANA 2 · DÍA 2 · BOOTSTRAP: GRILLAS Y UTILIDADES
+============================================================
+
+MINIRETO 5 · La flota en Bootstrap (pruebas/catalogo-bootstrap.html)
+- Bootstrap 5.3.3 por CDN, CSS en el head y bundle de JS al final del body (plantilla de la documentación oficial).
+- Network: bootstrap.min.css y bootstrap.bundle.min.js cargan con 200.
+- Grilla: container > row g-4 > col-12 col-sm-6 col-lg-4 col-xl-3. Esta página no enlaza styles.css.
+- Columnas comprobadas en modo dispositivo: 375px = 1, 600px = 2, 1000px = 3, 1280px = 4.
+
+Comparación:
+- Tiempo con mi CSS (v1.5): ____ min    Tiempo con Bootstrap: ____ min   (cronometrar al hacerlo)
+- Mi versión: 9 declaraciones de CSS de distribución (.grilla, .grilla .tarjeta y el enlace al final), 14 líneas.
+- Bootstrap: 0 líneas de CSS; 7 clases (container, row, g-4, col-12, col-sm-6, col-lg-4, col-xl-3).
+- Lo que me dio sin esfuerzo: breakpoints ya definidos y gutters iguales con una sola clase.
+- Lo que perdí: con auto-fit las columnas salían solas según el espacio; en Bootstrap tengo que decir cuántas columnas hay en cada breakpoint. Además, el HTML queda lleno de clases.
