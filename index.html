@@ -2,80 +2,106 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="content: Alquiler de bicicletas y recorridos guiados por Medellín. Explora la ciudad sobre dos ruedas con Rueda Libre." >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Alquiler de bicicletas y recorridos guiados por Medellín. Explora la ciudad sobre dos ruedas con Rueda Libre.">
     <title>Rueda Libre | Alquiler de bicicletas en Medellín</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/rueda-libre.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header> 
-    <h1> Rueda Libre</h1>
-    <nav>
+<header>
+    <div class="marca">
+        <img src="img/logo.jpg" alt="Logo de Rueda Libre" width="56" height="56">
+        <h1>Rueda Libre</h1>
+    </div>
+    <nav aria-label="Menú principal">
         <ul id="menu">
             <li><a class="activo" href="index.html">Inicio</a></li>
-            <li><a href="paginas/reservas.html">Reserva tu bicicleta</a></li>
-            <li ><a href="paginas/tarifas.html">Consulta nuestras tarifas</a></li>
+            <li><a href="paginas/tarifas.html">Tarifas</a></li>
+            <li><a href="paginas/reservas.html">Reservas</a></li>
         </ul>
     </nav>
-    <img src="img/descarga.jpeg" alt="" width="200">
 </header>
 
 <main>
-    <section>
-        <h2> Alquiler de bicicletas en Medellín </h2>
-        <p> Bienvenido a Rueda Libre! Alquilamos bicicletas y organizamos recorridos guiados para que descubras Medellín a tu ritmo: sus barrios, sus parques y sus montañas, sobre dos ruedas.</p>
+    <section class="portada">
+        <h2>Alquiler de bicicletas en Medellín</h2>
+        <p>¡Bienvenido a Rueda Libre! Alquilamos bicicletas y organizamos recorridos guiados para que descubras Medellín a tu ritmo: sus barrios, sus parques y sus montañas, sobre dos ruedas.</p>
+        <a class="boton" href="paginas/reservas.html">Reservar ahora</a>
+        <img src="img/portada.jpg" alt="Vista panorámica de Medellín rodeada de montañas">
     </section>
 
     <section>
-        <h3>Quienes somos</h3>
-        <p>Somos un emprendimiento de Medellín que nació con una idea sencilla: que <strong>conocer la ciudad en bicicleta</strong> sea fácil, seguro y para todos. Alquilamos bicicletas por horas o por días y organizamos recorridos guiados por los barrios, parques y miradores más bonitos del valle. Si quieres <a href="#Encuentranos">visitarnos</a>, mira cómo encontrarnos al final de esta página.</p>
+        <h2>Quiénes somos</h2>
+        <p>Somos un emprendimiento de Medellín que nació con una idea sencilla: que <strong>conocer la ciudad en bicicleta</strong> sea fácil, seguro y para todos. Alquilamos bicicletas por horas o por días y organizamos recorridos guiados por los barrios, parques y miradores más bonitos del valle. Si quieres <a href="#encuentranos">visitarnos</a>, mira cómo encontrarnos al final de esta página.</p>
     </section>
 
     <section>
-        <h3> Nuestros servicios </h3>
-        <p>Somos un emprendimiento de Medellín que nació con una idea sencilla: que conocer la ciudad en bicicleta sea fácil, seguro y para todos. Alquilamos bicicletas por horas o por días y organizamos recorridos guiados por los barrios, parques y miradores más bonitos del valle. Si quieres visitarnos, mira cómo encontrarnos al final de esta página.</p>
-    <article>
-        <h4>Alquiler de bicicletas</h4>
-        <p>Tenemos bicicletas urbanas, de montaña y eléctricas, revisadas antes de cada salida. Todo alquiler <strong>incluye</strong> casco y candado, para que solo te preocupes por disfrutar el camino.</p>
-        <h4> <a href="paginas/tarifas.html#Recorridos">Recorridos guiados</a></h4>
-        <p>Salimos en grupos pequeños con guías locales que conocen la historia de cada rincón. Hay rutas por El Poblado, Laureles, el centro y Las Palmas, pensadas <strong>para principiantes</strong> y para quienes ya tienen piernas entrenadas. Los recorridos de la mañana son, sin duda, los más tranquilos.</p>
-    </article>
-    <article>
-        <h4>Reparación y mantenimiento</h4>
-        <p>Si traes tu propia bicicleta, te ayudamos con ajustes de frenos, cambios, presión de llantas y lubricación de cadena. Es un servicio rápido mientras esperas.</p>
-        <a href="paginas/tarifas.html#tarifas">Tarifas</a>
-        <img src="img/camino.jpg" alt="camino" width="200">
-    </article>
+        <h2>Nuestros servicios</h2>
+        <p>Todo lo que necesitas para rodar por la ciudad, en un solo lugar.</p>
+
+        <article class="tarjeta">
+            <img src="img/alquiler.jpg" alt="Fila de bicicletas urbanas estacionadas en una ciclorruta de Medellín">
+            <h3>Alquiler de bicicletas</h3>
+            <p>Tenemos bicicletas urbanas y de montaña, revisadas antes de cada salida. Todo alquiler <strong>incluye</strong> casco y candado, para que solo te preocupes por disfrutar el camino.</p>
+            <a href="paginas/tarifas.html#alquiler">Ver tarifas de alquiler</a>
+        </article>
+
+        <article class="tarjeta">
+            <span class="etiqueta-nuevo">Nuevo</span>
+            <img src="img/electrica.jpg" alt="Persona montando una bicicleta eléctrica por la ciudad">
+            <h3>Bicicletas eléctricas</h3>
+            <p>Sube las lomas de Medellín sin quedarte sin aire. Nuestras bicicletas eléctricas te ayudan con cada pedalazo y son ideales para Las Palmas o Santa Elena.</p>
+            <a href="paginas/tarifas.html#alquiler">Ver tarifas de eléctricas</a>
+        </article>
+
+        <article class="tarjeta">
+            <img src="img/recorridos.jpg" alt="Grupo de ciclistas en un recorrido por las calles de Medellín">
+            <h3>Recorridos guiados</h3>
+            <p>Salimos en grupos pequeños con guías locales que conocen la historia de cada rincón. Hay rutas por El Poblado, Laureles, el centro y Las Palmas, pensadas <strong>para principiantes</strong> y para quienes ya tienen piernas entrenadas.</p>
+            <a href="paginas/tarifas.html#recorridos">Ver recorridos</a>
+        </article>
+
+        <article class="tarjeta">
+            <img src="img/taller.jpg" alt="Mecánico ajustando una bicicleta en un taller">
+            <h3>Reparación y mantenimiento</h3>
+            <p>Si traes tu propia bicicleta, te ayudamos con ajustes de frenos, cambios, presión de llantas y lubricación de cadena. Es un servicio rápido mientras esperas.</p>
+            <a href="#encuentranos">Visítanos en la sede</a>
+        </article>
     </section>
 
     <section>
-        <h3>¿Cómo alquilar?</h3>
+        <h2>¿Cómo alquilar?</h2>
         <ol>
-          <li>elige el tipo de bicicleta y el tiempo que deseas alquilar</li>
-          <li>reserva por correo o acércate a nuestra sede.</li>
-          <li>presenta tu documento de identidad al recogerla.</li>
-          <li>disfruta la ruta y devuélvela en el horario acordado.</li>
+            <li>Elige el tipo de bicicleta y el tiempo que deseas alquilar.</li>
+            <li>Reserva en línea o acércate a nuestra sede.</li>
+            <li>Presenta tu documento de identidad al recogerla.</li>
+            <li>Disfruta la ruta y devuélvela en el horario acordado.</li>
         </ol>
+        <a class="boton" href="paginas/reservas.html">Reservar ahora</a>
     </section>
 
     <section>
-        <h3>Beneficios de alquilar con nosotros</h3>
+        <h2>Beneficios de alquilar con nosotros</h2>
         <ul>
-          <li>Bicicletas revisadas antes de cada uso.</li>
-          <li>Casco y candado incluidos sin costo adicional.</li>
-          <li>Atención personalizada y recomendaciones de rutas.</li>
+            <li>Bicicletas revisadas antes de cada uso.</li>
+            <li>Casco y candado incluidos sin costo adicional.</li>
+            <li>Atención personalizada y recomendaciones de rutas.</li>
         </ul>
-        <img src="img/bici.jpg" alt="bicicleta" width="200">
     </section>
-    
-    <footer>
-         <h3 id="Encuentranos">Encuentranos</h3>
-        <a href="https://www.google.com/maps/dir//5FW3%2BXF+Mansion+de+WESTCOL,+Medell%C3%ADn,+Santa+Elena,+Medell%C3%ADn,+Antioquia/@6.1742612,-75.5869264,14z/data=!4m18!1m8!3m7!1s0x8e46830072f8808f:0xcc41ccfc072af6ef!2sMansion+de+WESTCOL!8m2!3d6.1974817!4d-75.5462576!15sCg9jYXNhIGRlIHdlc3Rjb2ySARNjb25kb21pbml1bV9jb21wbGV44AEA!16s%2Fg%2F11zxk6hddf!4m8!1m0!1m5!1m1!1s0x8e46830072f8808f:0xcc41ccfc072af6ef!2m2!1d-75.5462576!2d6.1974817!3e3?hl=es&entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Encuéntranos en Google Maps</a>
-        <a href="mailto: rueda-libre@gmail.com" target="_blank">Envíanos un correo</a>
-        <p>Si quieres alquilar una bicicleta o unirte a uno de nuestros recorridos guiados, contáctanos por correo electrónico a <a href="mailto:">contacto@ruedalibre.com</a></p>
-    </footer>
 </main>
+
+<footer>
+    <h2 id="encuentranos">Encuéntranos</h2>
+    <p>Si quieres alquilar una bicicleta o unirte a uno de nuestros recorridos guiados, escríbenos a <a href="mailto:contacto@ruedalibre.com">contacto@ruedalibre.com</a>.</p>
+    <p><a href="https://www.google.com/maps/dir//5FW3%2BXF+Mansion+de+WESTCOL,+Medell%C3%ADn,+Santa+Elena,+Medell%C3%ADn,+Antioquia/@6.1742612,-75.5869264,14z/data=!4m18!1m8!3m7!1s0x8e46830072f8808f:0xcc41ccfc072af6ef!2sMansion+de+WESTCOL!8m2!3d6.1974817!4d-75.5462576!15sCg9jYXNhIGRlIHdlc3Rjb2ySARNjb25kb21pbml1bV9jb21wbGV44AEA!16s%2Fg%2F11zxk6hddf!4m8!1m0!1m5!1m1!1s0x8e46830072f8808f:0xcc41ccfc072af6ef!2m2!1d-75.5462576!2d6.1974817!3e3?hl=es&amp;entry=ttu&amp;g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Encuéntranos en Google Maps</a></p>
+    <p>© 2026 Rueda Libre · Medellín, Colombia</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/573000000000" target="_blank" rel="noopener">
+    <img src="img/whatsapp.png" alt="Escríbenos por WhatsApp" width="48" height="48">
+</a>
 </body>
 </html>

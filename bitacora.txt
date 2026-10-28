@@ -36,85 +36,85 @@ Prueba 1
 Campo: Nombre
 Dato de prueba: (vacío)
 Resultado esperado: No se envía el formulario y se muestra el mensaje "Completa este campo".
-Resultado obtenido:
+Resultado obtenido: No se envía. Mensaje: "Completa este campo". ✔
 
 Prueba 2
 Campo: Número de documento
 Dato de prueba: 12345
 Resultado esperado: No se envía el formulario porque el documento tiene menos de 6 dígitos.
-Resultado obtenido:
+Resultado obtenido: No se envía. Mensaje: "Usa el formato solicitado" (pattern [0-9]{6,10}). ✔
 
 Prueba 3
 Campo: Número de documento
 Dato de prueba: 10364A5892
 Resultado esperado: No se envía el formulario porque el documento contiene una letra.
-Resultado obtenido:
+Resultado obtenido: No se envía por la letra A. ✔
 
 Prueba 4
 Campo: Correo electrónico
 Dato de prueba: pepitoejemplo.com
 Resultado esperado: No se envía el formulario porque el correo no tiene el símbolo @.
-Resultado obtenido:
+Resultado obtenido: No se envía. Mensaje: falta el símbolo "@". ✔
 
 Prueba 5
 Campo: Teléfono
 Dato de prueba: 2104567890
 Resultado esperado: No se envía el formulario porque el número no empieza por 3, y se muestra el mensaje del title.
-Resultado obtenido:
+Resultado obtenido: No se envía y muestra el title: "Debe empezar por 3 y tener 10 dígitos". ✔
 
 Prueba 6
 Campo: Teléfono
 Dato de prueba: 300123456
 Resultado esperado: No se envía el formulario porque el número tiene 9 dígitos en lugar de 10.
-Resultado obtenido:
+Resultado obtenido: No se envía, tiene 9 dígitos. ✔
 
 Prueba 7
 Campo: Teléfono
 Dato de prueba: (vacío)
 Resultado esperado: No se envía el formulario porque el teléfono es obligatorio.
-Resultado obtenido:
+Resultado obtenido: No se envía. Se agregó required al teléfono (antes no lo tenía y se enviaba). ✔
 
 Prueba 8
 Campo: Fecha de alquiler
 Dato de prueba: 15/10/2026
 Resultado esperado: El calendario no permite elegir la fecha o el formulario no se envía, porque está antes del 1 de noviembre de 2026.
-Resultado obtenido:
+Resultado obtenido: No se envía. Mensaje: el valor debe ser 01/11/2026 o posterior. ✔
 
 Prueba 9
 Campo: Fecha de alquiler
 Dato de prueba: 05/01/2027
 Resultado esperado: El calendario no permite elegir la fecha o el formulario no se envía, porque está después del 31 de diciembre de 2026.
-Resultado obtenido:
+Resultado obtenido: No se envía. Mensaje: el valor debe ser 31/12/2026 o anterior. ✔
 
 Prueba 10
 Campo: Tipo de bicicleta
 Dato de prueba: Clic en el texto "Montaña"
 Resultado esperado: Se marca la opción Montaña.
-Resultado obtenido:
+Resultado obtenido: Se marca Montaña. Antes fallaba porque los 3 radios tenían el mismo id; ahora cada uno tiene id propio (bici-urbana, bici-montana, bici-electrica). ✔
 
 Prueba 11
 Campo: Tipo de bicicleta
 Dato de prueba: Ninguna opción marcada
 Resultado esperado: No se envía el formulario y se pide elegir una opción.
-Resultado obtenido:
+Resultado obtenido: No se envía. Mensaje: "Selecciona una de estas opciones". ✔
 
 Prueba 12
 Campo: Plan
 Dato de prueba: "Seleccionar..."
 Resultado esperado: No se envía el formulario y se pide elegir un plan.
-Resultado:
+Resultado obtenido: No se envía. Se agregó required al select del plan. ✔
 
 Prueba 13
 Campo: Cantidad de bicicletas
 Dato de prueba: 7
 Resultado esperado: No se envía el formulario porque el máximo permitido es 6.
-Resultado obtenido:
+Resultado obtenido: No se envía. Mensaje: el valor debe ser menor o igual a 6. ✔
 
 Prueba 14
 Campo: Confirmación
 Dato de prueba: Casilla sin marcar
 Resultado esperado: No se envía el formulario y se pide marcar la casilla.
-Resultado obtenido:
+Resultado obtenido: No se envía. Mensaje: "Marca esta casilla si deseas continuar". ✔
 
 Hallazgo: Rutas de acceso incorrectas entre páginas
 Criterio revisado: Funcionamiento de los enlaces y navegación
@@ -146,7 +146,7 @@ Enlaces: Verde Ruta
 Botón principal: fondo Verde Ruta con texto blanco
 Destacados: fondo Naranja Pedal 
 #F39A2B con texto Azul Noche
-Foco de teclado: contorno Azul Noche
+Foco de teclado: contorno Azul Noche (sobre fondos claros). En header, footer y portada (fondo azul) el contorno es Naranja Pedal, que da 7.2:1 sobre azul.
 Errores del formulario: rojo 
 #B3261E con mensaje en texto
 No usar: texto blanco sobre naranja, texto naranja sobre crema ni contornos naranjas, porque no pasan el contraste. 
@@ -154,10 +154,92 @@ No usar: texto blanco sobre naranja, texto naranja sobre crema ni contornos nara
 
 El conflicto importante es entre #menu a y .activo: el primero tiene más especificidad porque incluye un id; por eso puede ganar para color. 
 El font-weight de .activo sí se aplica porque la otra regla no define ese grosor.
+Cálculo de especificidad (id, clase, elemento):
+#menu a       -> (1, 0, 1)  un id + un elemento
+.activo       -> (0, 1, 0)  una clase
+Gana #menu a porque compara primero los id: 1 > 0. En DevTools el color de .activo aparece tachado.
+Corrección sin !important ni estilos en línea: cambié el selector a #menu .activo -> (1, 1, 0), que le gana a (1, 0, 1).
+Además el color del activo pasó de verde a naranja: verde ruta sobre azul noche da 3:1 y no cumple 4.5:1; naranja sobre azul noche da 7.2:1.
 
 Medición de tarjeta en DevTools (Computed):
-Antes de aplicar box-sizing: border-box -> ancho total aproximado 260px.
-Después de aplicar box-sizing: border-box -> ancho total aproximado 200px.
+Antes de aplicar box-sizing: border-box (content-box) -> ancho total 500.23px (466.23 de contenido + 16+16 de padding + 1+1 de borde).
+Después de aplicar box-sizing: border-box -> ancho total 466.23px (el 47% del contenedor, padding y borde incluidos).
 La diferencia se debe a que el padding y el borde ya no suman por fuera del ancho definido, manteniendo mejor el control del layout.
 
 
+
+HERENCIA (MiniReto 9) - comprobado en DevTools (Styles y Computed) sobre un párrafo de "Quiénes somos":
+Se hereda: color y font-family. El párrafo no tiene reglas propias y aun así muestra Open Sans y el color azul noche, que vienen de body.
+No se hereda: padding y border. body tiene margin 0 y el párrafo conserva sus márgenes propios; el borde de .tarjeta no pasa a los párrafos que están dentro (border-top-width: 0px).
+Fuentes en Computed: h2 -> Montserrat 700; p -> Open Sans 400. Network: las dos fuentes cargan sin errores.
+
+REVISIÓN FINAL v1.0 (MiniReto 12)
+- Etiqueta "Nuevo": .tarjeta tiene position: relative y .etiqueta-nuevo position: absolute con top y right; queda anclada a la esquina de la tarjeta de eléctricas sin mover el contenido.
+- WhatsApp: position: fixed con bottom y right en las 3 páginas, abre wa.me en otra pestaña y se puede enfocar con Tab. Para que no tape el final, el footer tiene padding inferior extra (--espacio-xl).
+- Encabezado, menú, botones y pie son idénticos en las 3 páginas. El footer de index estaba dentro de main y lo saqué.
+- styles.css quedó organizado por secciones comentadas: variables, base, navegación, componentes, formulario, pie y WhatsApp. Sin reglas duplicadas.
+- Errores corregidos: logo con ruta rota en paginas/ (faltaba ../), dos h1 en tarifas, columna "Precio" sin encabezado, ids con espacios, mailto vacío, lang="en" en reservas, falta de viewport.
+- Network sin 404 en las 3 páginas. Recorrido con Tab: todos los elementos muestran foco.
+
+CIERRE DE LA SEMANA
+1. Kilómetro 0: repositorio, carpetas e index.html base.
+2. La vitrina: contenido de inicio con títulos, listas, imágenes y enlaces.
+3. Tarifas claras: tablas de alquiler y recorridos, rutas relativas con ../
+4. v0.1: página de reservas, menú y pie comunes.
+5. Estructura con significado: header, nav, main, section, article, aside, footer.
+6. Formulario de reservas: fieldsets, legends, labels asociados.
+7. Validación: required, pattern, min/max, type email/tel/date/number, uso con teclado.
+8. v0.2: auditoría de accesibilidad, mapa de color y publicación en GitHub Pages.
+9. Identidad: styles.css, variables en :root, Google Fonts y herencia.
+10. Estados: :hover y :focus, clase activo, conflicto de especificidad resuelto, botón "Reservar ahora".
+11. Modelo de caja: border-box, main con max-width en rem centrado, portada con vh, tarjetas, tablas y formulario con la escala de espaciado.
+12. v1.0: position (relative, absolute, fixed), revisión final y publicación.
+
+Lo que mejoraría:
+(ESCRIBIR CON MIS PALABRAS) Ideas: usar media queries para que las tarjetas ocupen todo el ancho en celular; mensajes de error propios en el formulario; fotos propias del negocio.
+
+------------------------------------------------------------
+PENDIENTES DE RETOS ANTERIORES (completados en la revisión final)
+
+URL PUBLICADA: https://emma2riwi.github.io/rueda-libre/
+
+ESQUEMA DE REGIONES (MiniReto 5)
+index.html
+  header -> logo + nombre (h1) + nav (menú principal)
+  main
+    section.portada   -> título, texto y botón Reservar ahora
+    section           -> Quiénes somos
+    section           -> Nuestros servicios
+       article x4     -> alquiler, eléctricas (Nuevo), recorridos, reparación
+    section           -> ¿Cómo alquilar?
+    section           -> Beneficios
+  footer -> Encuéntranos, correo, mapa
+tarifas.html
+  header + nav
+  main
+    section -> título de la página
+    section -> tabla de alquiler
+    section -> tabla de recorridos
+    aside   -> notas / qué llevar
+  footer
+reservas.html
+  header + nav
+  main
+    section -> formulario (3 fieldsets)
+    aside   -> horario de atención
+  footer
+
+DIV Y SPAN QUE SE QUEDAN (no tienen equivalente semántico, solo agrupan para dar estilo):
+- div.marca: junta logo y nombre en el encabezado.
+- div.campo y div.opcion: agrupan cada label con su campo en el formulario.
+- span.etiqueta-nuevo: texto corto dentro de la tarjeta, solo para posicionarlo.
+
+AUDITORÍA DE ACCESIBILIDAD (MiniReto 8) - hallazgos y correcciones
+1. Imagen del encabezado con alt="" y ruta rota en paginas/ -> ahora es el logo, con alt="Logo de Rueda Libre" y ruta ../img/logo.jpg.
+2. Imágenes con alt poco descriptivo ("camino", "bicicleta") -> alt que describe lo que muestra cada foto.
+3. tarifas.html tenía dos h1 -> el título de la página pasó a h2; un solo h1 por página.
+4. reservas.html tenía lang="en" -> lang="es".
+5. Enlace "Tarifas" sin contexto -> "Ver tarifas de alquiler", "Ver recorridos", etc.
+6. Radios con el mismo id: al hacer clic en "Montaña" se marcaba "Urbana" -> ids únicos y agrupados en fieldset con legend.
+7. Enlace mailto vacío y con espacio -> mailto:contacto@ruedalibre.com.
+8. Recorrido con teclado: todos los enlaces, campos y botones reciben foco visible.

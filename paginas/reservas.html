@@ -1,117 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reservas</title>
+    <meta name="description" content="Reserva en línea tu bicicleta o tu recorrido guiado con Rueda Libre en Medellín.">
+    <title>Reservas | Rueda Libre</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/rueda-libre.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-<header> 
-    <h1> Rueda Libre</h1>
-    <nav>
+<header>
+    <div class="marca">
+        <img src="../img/logo.jpg" alt="Logo de Rueda Libre" width="56" height="56">
+        <h1>Rueda Libre</h1>
+    </div>
+    <nav aria-label="Menú principal">
         <ul id="menu">
             <li><a href="../index.html">Inicio</a></li>
-            <li><a class="activo" href="../paginas/reservas.html">Reserva tu bicicleta</a></li>
-            <li><a href="../paginas/tarifas.html">Consulta nuestras tarifas</a></li>
+            <li><a href="../paginas/tarifas.html">Tarifas</a></li>
+            <li><a class="activo" href="../paginas/reservas.html">Reservas</a></li>
         </ul>
     </nav>
-    <img src="img/descarga.jpeg" alt="" width="200">
 </header>
-<main>  
-    <section>   
-        <form action="#" method="post"> 
+
+<main>
+    <section>
+        <h2>Reserva tu bicicleta</h2>
+        <p>Llena el formulario y te confirmamos la reserva por correo. Los campos con <abbr title="obligatorio">*</abbr> son obligatorios.</p>
+
+        <form action="#" method="post">
             <fieldset>
                 <legend>Tus datos</legend>
-                <div>
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required placeholder="pepito perez">
+                <div class="campo">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" name="nombre" required minlength="3" autocomplete="name" placeholder="Pepito Pérez">
                 </div>
-                <div>
-                    <label for="tipo ID">tipo de identificacion:</label>
-                    <select name="tipo ID" id="tipo ID">
+                <div class="campo">
+                    <label for="tipo-id">Tipo de identificación *</label>
+                    <select id="tipo-id" name="tipo-id" required>
                         <option value="CC">Cédula de ciudadanía</option>
                         <option value="CE">Cédula de extranjería</option>
                         <option value="TI">Tarjeta de identidad</option>
                     </select>
-                    <label for="ID">Número de documento:</label>
-                    <input type="text" id="ID" name="ID" inputmode="numeric" pattern="[0-9]{6,10}" placeholder="123456789">
                 </div>
-                <div>
-                    <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" name="email" required placeholder="pepito@ejemplo.com">
+                <div class="campo">
+                    <label for="documento">Número de documento *</label>
+                    <input type="text" id="documento" name="documento" required inputmode="numeric" pattern="[0-9]{6,10}" title="Solo números, entre 6 y 10 dígitos" placeholder="123456789">
                 </div>
-                <div>
-                    <label for="telefono">Teléfono:</label>
-                    <input type="tel" id="telefono" name="telefono" pattern="3[0-9]{9}" placeholder="3001234567" title="El número de teléfono debe comenzar con 3 y tener 10 dígitos">
+                <div class="campo">
+                    <label for="email">Correo electrónico *</label>
+                    <input type="email" id="email" name="email" required autocomplete="email" placeholder="pepito@ejemplo.com">
                 </div>
-            </fieldset> 
+                <div class="campo">
+                    <label for="telefono">Celular *</label>
+                    <input type="tel" id="telefono" name="telefono" required pattern="3[0-9]{9}" autocomplete="tel" title="Debe empezar por 3 y tener 10 dígitos" placeholder="3001234567">
+                </div>
+            </fieldset>
+
             <fieldset>
                 <legend>Tu alquiler</legend>
-                <div>
-                    <label for="fecha">Fecha de alquiler:</label>
+                <div class="campo">
+                    <label for="fecha">Fecha de alquiler *</label>
                     <input type="date" id="fecha" name="fecha" min="2026-11-01" max="2026-12-31" required>
                 </div>
-                <div>
-                    <label for="tipo de bicicleta">tipo de bicicleta:</label>
-                    <input type="radio" id="tipo de bicicleta" name="tipo de bicicleta" value="urbana" required>
-                    <label for="tipo de bicicleta">Urbana</label>
-                    <input type="radio" id="tipo de bicicleta" name="tipo de bicicleta" value="montaña" required>
-                    <label for="tipo de bicicleta">Montaña</label>
-                    <input type="radio" id="tipo de bicicleta" name="tipo de bicicleta" value="electrica" required>
-                    <label for="tipo de bicicleta">Eléctrica</label>
-                </div>
-                <div>
-                    <label for="plan">Plan:</label>
-                    <select name="plan" id="plan">
+                <fieldset class="grupo-opciones">
+                    <legend>Tipo de bicicleta *</legend>
+                    <div class="opcion">
+                        <input type="radio" id="bici-urbana" name="bicicleta" value="urbana" required>
+                        <label for="bici-urbana">Urbana</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="bici-montana" name="bicicleta" value="montana">
+                        <label for="bici-montana">Montaña</label>
+                    </div>
+                    <div class="opcion">
+                        <input type="radio" id="bici-electrica" name="bicicleta" value="electrica">
+                        <label for="bici-electrica">Eléctrica</label>
+                    </div>
+                </fieldset>
+                <div class="campo">
+                    <label for="plan">Plan *</label>
+                    <select id="plan" name="plan" required>
                         <option value="">Seleccionar...</option>
                         <option value="1h">1 hora</option>
-                        <option value="4h">Medio dia (4h)</option>
-                        <option value="8h">dia completo (8h)</option>
+                        <option value="4h">Medio día (4 horas)</option>
+                        <option value="8h">Día completo (8 horas)</option>
                     </select>
                 </div>
-                <div>
-                    <label for="cantidad">Cantidad de bicicletas:</label>
-                    <input type="number" id="cantidad" name="cantidad" min="1" max="6" required>
+                <div class="campo">
+                    <label for="cantidad">Cantidad de bicicletas *</label>
+                    <input type="number" id="cantidad" name="cantidad" min="1" max="6" value="1" required>
                 </div>
-                <div> 
-                    <label for="recorrido">Recorrido:</label>
-                    <select name="recorrido" id="recorrido">
-                        <option value="">Seleccionar...</option>
-                        <option value="urbano">Rios y parques</option>
-                        <option value="montaña">Reto las palmas</option>
-                        <option value="sabores">Sabores de barrio</option>
+                <div class="campo">
+                    <label for="recorrido">Recorrido guiado (opcional)</label>
+                    <select id="recorrido" name="recorrido">
                         <option value="ninguno">Ninguno</option>
+                        <option value="rios">Ríos y parques</option>
+                        <option value="sabores">Sabores de barrio</option>
+                        <option value="palmas">Reto Las Palmas</option>
                     </select>
                 </div>
             </fieldset>
-            <fieldset> 
+
+            <fieldset>
                 <legend>Confirmación</legend>
-                <div>
-                    <label for="confirmacion">Confirmo que la información proporcionada es correcta y acepto los términos y condiciones del alquiler de bicicletas.</label>
+                <div class="opcion campo">
                     <input type="checkbox" id="confirmacion" name="confirmacion" required>
+                    <label for="confirmacion">Confirmo que mis datos son correctos y acepto los términos del alquiler. *</label>
                 </div>
-                <button type="submit">Enviar</button>
+                <button type="submit">Enviar reserva</button>
             </fieldset>
-    </form>
+        </form>
     </section>
-    <section>
-        <h2>Horario de atencion</h2>
+
+    <aside>
+        <h2>Horario de atención</h2>
         <ul>
-            <li>Lunes a viernes de 7:00 a. m. a 7:00 p. m</li>
-            <li>sábados, domingos y festivos de 6:00 a. m. a 2:00 p. m</li>
+            <li>Lunes a viernes de 7:00 a. m. a 7:00 p. m.</li>
+            <li>Sábados, domingos y festivos de 6:00 a. m. a 2:00 p. m.</li>
         </ul>
-    </section>
+    </aside>
 </main>
-    <footer>
-        
-    <h3 id="Encuentranos">Encuentranos</h3>
-    <a href="https://www.google.com/maps/dir//5FW3%2BXF+Mansion+de+WESTCOL,+Medell%C3%ADn,+Santa+Elena,+Medell%C3%ADn,+Antioquia/@6.1742612,-75.5869264,14z/data=!4m18!1m8!3m7!1s0x8e46830072f8808f:0xcc41ccfc072af6ef!2sMansion+de+WESTCOL!8m2!3d6.1974817!4d-75.5462576!15sCg9jYXNhIGRlIHdlc3Rjb2ySARNjb25kb21pbml1bV9jb21wbGV44AEA!16s%2Fg%2F11zxk6hddf!4m8!1m0!1m5!1m1!1s0x8e46830072f8808f:0xcc41ccfc072af6ef!2m2!1d-75.5462576!2d6.1974817!3e3?hl=es&entry=ttu&g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank">Encuéntranos en Google Maps</a>
-    <a href="mailto: rueda-libre@gmail.com" target="_blank">Envíanos un correo</a>
-    <p>Si quieres alquilar una bicicleta o unirte a uno de nuestros recorridos guiados, contáctanos por correo electrónico a <a href="mailto:">contacto@ruedalibre.com</a></p>
+
+<footer>
+    <h2 id="encuentranos">Encuéntranos</h2>
+    <p>Si quieres alquilar una bicicleta o unirte a uno de nuestros recorridos guiados, escríbenos a <a href="mailto:contacto@ruedalibre.com">contacto@ruedalibre.com</a>.</p>
+    <p><a href="https://www.google.com/maps/dir//5FW3%2BXF+Mansion+de+WESTCOL,+Medell%C3%ADn,+Santa+Elena,+Medell%C3%ADn,+Antioquia/@6.1742612,-75.5869264,14z/data=!4m18!1m8!3m7!1s0x8e46830072f8808f:0xcc41ccfc072af6ef!2sMansion+de+WESTCOL!8m2!3d6.1974817!4d-75.5462576!15sCg9jYXNhIGRlIHdlc3Rjb2ySARNjb25kb21pbml1bV9jb21wbGV44AEA!16s%2Fg%2F11zxk6hddf!4m8!1m0!1m5!1m1!1s0x8e46830072f8808f:0xcc41ccfc072af6ef!2m2!1d-75.5462576!2d6.1974817!3e3?hl=es&amp;entry=ttu&amp;g_ep=EgoyMDI2MTAyMC4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">Encuéntranos en Google Maps</a></p>
+    <p>© 2026 Rueda Libre · Medellín, Colombia</p>
+    <p class="creditos">Fotos: Wikimedia Commons, licencias CC (autores en el README).</p>
 </footer>
+
+<a class="whatsapp" href="https://wa.me/573000000000" target="_blank" rel="noopener">
+    <img src="../img/whatsapp.png" alt="Escríbenos por WhatsApp" width="48" height="48">
+</a>
 </body>
 </html>

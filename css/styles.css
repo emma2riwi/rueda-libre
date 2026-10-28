@@ -1,0 +1,416 @@
+
+
+:root {
+  /* Tipografías */
+  --fuente-principal: "Open Sans", Arial, sans-serif;
+  --fuente-secundaria: "Montserrat", "Trebuchet MS", sans-serif;
+
+  --crema: #FAF6EF;
+  --blanco: #FFFFFF;
+  --azul-noche: #14213D;
+  --gris-asfalto: #5B6470;
+  --verde-ruta: #1E7A4F;
+  --naranja-pedal: #F39A2B;
+  --rojo-error: #B3261E;
+  --borde: rgba(20, 33, 61, 0.2);
+
+  /* Escala de espaciado */
+  --espacio-xs: 0.25rem;
+  --espacio-pequeno: 0.5rem;
+  --espacio-mediano: 1rem;
+  --espacio-grande: 2rem;
+  --espacio-xl: 5rem;
+
+  /* Bordes redondeados */
+  --radio: 1rem;
+  --radio-pequeno: 0.5rem;
+}
+
+
+/* ---------- 2. BASE ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-principal);
+  font-weight: 400;
+  color: var(--azul-noche);
+  background-color: var(--crema);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--fuente-secundaria);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--verde-ruta);
+}
+
+a:hover {
+  color: var(--azul-noche);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Foco visible: contorno azul sobre fondos claros */
+a:focus,
+button:focus,
+input:focus,
+select:focus {
+  outline: 3px solid var(--azul-noche);
+  outline-offset: 2px;
+}
+
+/* Sobre fondos oscuros el contorno azul no se ve: se usa naranja (7.2:1) */
+header a:focus,
+footer a:focus,
+.portada a:focus {
+  outline-color: var(--naranja-pedal);
+}
+
+/* Contenido principal: una sola columna centrada */
+main {
+  max-width: 48rem;
+  margin: 0 auto;
+  padding: var(--espacio-grande) var(--espacio-mediano);
+}
+
+main section {
+  margin-bottom: var(--espacio-grande);
+}
+
+
+/* ---------- 3. ENCABEZADO Y NAVEGACIÓN ---------- */
+header {
+  background-color: var(--azul-noche);
+  color: var(--blanco);
+  padding: var(--espacio-mediano);
+  border-bottom: 4px solid var(--naranja-pedal);
+  text-align: center;
+}
+
+/* Logo a la izquierda del nombre, ubicado con position */
+.marca {
+  position: relative;
+  display: inline-block;
+  min-height: 3.5rem;
+  padding-left: 4.25rem;
+}
+
+.marca img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3.5rem;
+  border-radius: var(--radio-pequeno);
+}
+
+.marca h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 3.5rem;
+}
+
+#menu {
+  list-style: none;
+  padding: 0;
+  margin: var(--espacio-mediano) 0 0;
+}
+
+#menu li {
+  display: inline-block;
+  margin: var(--espacio-xs);
+}
+
+/* Regla del compañero (MiniReto 10) adaptada a la paleta */
+#menu a {
+  display: inline-block;
+  padding: var(--espacio-pequeno) var(--espacio-grande);
+  border: 2px solid var(--blanco);
+  border-radius: var(--radio-pequeno);
+  color: var(--blanco);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Corrección del conflicto: #menu .activo (1,1,0) le gana a #menu a (1,0,1) */
+#menu .activo {
+  background-color: var(--naranja-pedal);
+  border-color: var(--naranja-pedal);
+  color: var(--azul-noche);
+}
+
+#menu a:hover,
+#menu a:focus {
+  border-color: var(--naranja-pedal);
+  color: var(--naranja-pedal);
+}
+
+#menu .activo:hover,
+#menu .activo:focus {
+  color: var(--azul-noche);
+}
+
+
+/* ---------- 4. COMPONENTES ---------- */
+
+/* Portada */
+.portada {
+  min-height: 60vh;
+  padding: var(--espacio-grande);
+  border-radius: var(--radio);
+  background-color: var(--azul-noche);
+  color: var(--blanco);
+}
+
+.portada h2 {
+  font-size: 2.25rem;
+  margin-top: 0;
+}
+
+.portada p {
+  margin: 0 0 var(--espacio-grande);
+  font-size: 1.125rem;
+}
+
+.portada img {
+  width: 100%;
+  margin-top: var(--espacio-grande);
+  border-radius: var(--radio-pequeno);
+}
+
+/* Tarjetas de servicios */
+.tarjeta {
+  position: relative;
+  margin-bottom: var(--espacio-grande);
+  padding: var(--espacio-mediano);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--blanco);
+}
+
+.tarjeta img {
+  width: 100%;
+  border-radius: var(--radio-pequeno);
+}
+
+.tarjeta h3 {
+  margin: var(--espacio-mediano) 0 var(--espacio-pequeno);
+}
+
+/* Etiqueta "Nuevo": anclada a la esquina de su tarjeta sin mover el contenido */
+.etiqueta-nuevo {
+  position: absolute;
+  top: var(--espacio-grande);
+  right: var(--espacio-grande);
+  padding: var(--espacio-xs) var(--espacio-mediano);
+  border-radius: var(--radio-pequeno);
+  background-color: var(--naranja-pedal);
+  color: var(--azul-noche);
+  font-weight: 600;
+}
+
+/* Botón de llamada a la acción ("Reservar ahora") */
+.boton,
+button {
+  display: inline-block;
+  padding: var(--espacio-mediano) var(--espacio-grande);
+  border: none;
+  border-radius: var(--radio-pequeno);
+  background-color: var(--verde-ruta);
+  color: var(--blanco);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover,
+button:hover {
+  background-color: var(--naranja-pedal);
+  color: var(--azul-noche);
+}
+
+/* En la portada (fondo azul) el botón va en naranja */
+.portada .boton {
+  background-color: var(--naranja-pedal);
+  color: var(--azul-noche);
+}
+
+.portada .boton:hover {
+  background-color: var(--blanco);
+}
+
+/* Tablas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--espacio-mediano) 0;
+  background-color: var(--blanco);
+}
+
+caption {
+  text-align: left;
+  color: var(--gris-asfalto);
+  margin-bottom: var(--espacio-pequeno);
+}
+
+th,
+td {
+  border: 1px solid var(--borde);
+  padding: var(--espacio-pequeno) var(--espacio-mediano);
+  text-align: left;
+}
+
+th {
+  background-color: var(--azul-noche);
+  color: var(--blanco);
+}
+
+/* Notas de tarifas y horario de reservas */
+aside {
+  padding: var(--espacio-mediano) var(--espacio-grande);
+  border-left: 4px solid var(--naranja-pedal);
+  border-radius: var(--radio-pequeno);
+  background-color: var(--blanco);
+  margin-bottom: var(--espacio-grande);
+}
+
+
+/* ---------- 5. FORMULARIO ---------- */
+fieldset {
+  margin: 0 0 var(--espacio-grande);
+  padding: var(--espacio-grande);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio);
+  background-color: var(--blanco);
+}
+
+legend {
+  padding: 0 var(--espacio-pequeno);
+  font-family: var(--fuente-secundaria);
+  font-weight: 700;
+}
+
+.campo {
+  margin-bottom: var(--espacio-mediano);
+}
+
+label {
+  display: block;
+  margin-bottom: var(--espacio-xs);
+  font-weight: 600;
+}
+
+input,
+select {
+  width: 100%;
+  padding: var(--espacio-pequeno) var(--espacio-mediano);
+  border: 1px solid var(--borde);
+  border-radius: var(--radio-pequeno);
+  font: inherit;
+  color: var(--azul-noche);
+  background-color: var(--blanco);
+}
+
+input:hover,
+select:hover {
+  border-color: var(--azul-noche);
+}
+
+/* Grupo de opciones (radios y casilla): control y texto en la misma línea */
+.grupo-opciones {
+  padding: 0;
+  border: none;
+  margin: 0 0 var(--espacio-mediano);
+}
+
+.grupo-opciones legend {
+  padding: 0;
+  margin-bottom: var(--espacio-xs);
+  font-family: var(--fuente-principal);
+  font-weight: 600;
+}
+
+.opcion {
+  display: inline-block;
+  margin-right: var(--espacio-mediano);
+}
+
+.opcion input,
+.opcion label {
+  display: inline;
+  width: auto;
+  margin: 0 var(--espacio-xs) 0 0;
+}
+
+.opcion label {
+  font-weight: 400;
+}
+
+/* Mientras el usuario escribe, un dato inválido se marca en rojo */
+input:focus:invalid,
+select:focus:invalid {
+  border-color: var(--rojo-error);
+  border-width: 2px;
+}
+
+
+/* ---------- 6. PIE DE PÁGINA ---------- */
+footer {
+  background-color: var(--azul-noche);
+  color: var(--blanco);
+  padding: var(--espacio-grande) var(--espacio-mediano) var(--espacio-xl);
+  border-top: 4px solid var(--naranja-pedal);
+  text-align: center;
+}
+
+footer h2 {
+  margin-top: 0;
+}
+
+footer a {
+  color: var(--blanco);
+}
+
+footer a:hover {
+  color: var(--naranja-pedal);
+}
+
+
+/* ---------- 7. BOTÓN DE WHATSAPP ---------- */
+/* Fijo en la esquina; el footer tiene relleno inferior extra para que no tape nada */
+.whatsapp {
+  position: fixed;
+  bottom: var(--espacio-mediano);
+  right: var(--espacio-mediano);
+  display: block;
+  padding: var(--espacio-xs);
+  border: 2px solid var(--blanco);
+  border-radius: 50%;
+  background-color: var(--blanco);
+}
+
+.whatsapp img {
+  width: 3rem;
+}
+
+.whatsapp:hover {
+  border-color: var(--verde-ruta);
+}
