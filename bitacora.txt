@@ -150,3 +150,14 @@ Foco de teclado: contorno Azul Noche
 Errores del formulario: rojo 
 #B3261E con mensaje en texto
 No usar: texto blanco sobre naranja, texto naranja sobre crema ni contornos naranjas, porque no pasan el contraste. 
+
+
+El conflicto importante es entre #menu a y .activo: el primero tiene más especificidad porque incluye un id; por eso puede ganar para color. 
+El font-weight de .activo sí se aplica porque la otra regla no define ese grosor.
+
+Medición de tarjeta en DevTools (Computed):
+Antes de aplicar box-sizing: border-box -> ancho total aproximado 260px.
+Después de aplicar box-sizing: border-box -> ancho total aproximado 200px.
+La diferencia se debe a que el padding y el borde ya no suman por fuera del ancho definido, manteniendo mejor el control del layout.
+
+
