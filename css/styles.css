@@ -87,13 +87,6 @@ footer a:focus,
   outline-color: var(--naranja-pedal);
 }
 
-/* Contenido principal: una sola columna centrada */
-main {
-  max-width: 72rem;
-  margin: 0 auto;
-  padding: var(--espacio-mediano);
-}
-
 main section {
   margin-bottom: var(--espacio-grande);
 }
@@ -105,20 +98,9 @@ main section > p {
 
 /* ---------- 3. ENCABEZADO Y NAVEGACIÓN ---------- */
 header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--espacio-mediano);
   background-color: var(--azul-noche);
   color: var(--blanco);
-  padding: var(--espacio-mediano);
   border-bottom: 4px solid var(--naranja-pedal);
-}
-
-.marca {
-  display: flex;
-  align-items: center;
-  gap: var(--espacio-mediano);
 }
 
 .marca img {
@@ -129,16 +111,6 @@ header {
 .marca h1 {
   margin: 0;
   font-size: 1.75rem;
-}
-
-#menu {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: var(--espacio-pequeno);
-  list-style: none;
-  padding: 0;
-  margin: 0;
 }
 
 /* Regla del compañero (MiniReto 10) adaptada a la paleta */
@@ -299,6 +271,7 @@ table {
 }
 
 caption {
+  caption-side: top;
   text-align: left;
   color: var(--gris-asfalto);
   margin-bottom: var(--espacio-pequeno);
@@ -328,22 +301,12 @@ aside {
 
 /* ---------- 5. FORMULARIO ---------- */
 
-/* lo usa reservas.html */
-.reservas {
-  display: grid;
-  grid-template-columns: 1fr;
-  align-items: start;
-  gap: var(--espacio-grande);
+aside h2 {
+  font-size: 1.5rem;
 }
 
-/* lo usa reservas.html */
-.fila {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--espacio-mediano);
-}
-
-.reservas aside h3 {
+aside h3 {
+  font-size: 1.125rem;
   margin-bottom: var(--espacio-pequeno);
 }
 
@@ -356,6 +319,9 @@ fieldset {
 }
 
 legend {
+  float: none;
+  width: auto;
+  font-size: 1.125rem;
   padding: 0 var(--espacio-pequeno);
   font-family: var(--fuente-secundaria);
   font-weight: 700;
@@ -427,15 +393,9 @@ select:focus:invalid {
 
 /* ---------- 6. PIE DE PÁGINA ---------- */
 footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: var(--espacio-grande);
   background-color: var(--azul-noche);
   color: var(--blanco);
-  padding: var(--espacio-grande) var(--espacio-mediano) var(--espacio-xl);
+  padding-bottom: var(--espacio-xl);
   border-top: 4px solid var(--naranja-pedal);
 }
 
@@ -483,32 +443,12 @@ footer a:hover {
 
 /* Tablet: desde 768px */
 @media (min-width: 768px) {
-  header {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: var(--espacio-mediano) var(--espacio-grande);
-  }
-
   #menu a {
     padding: var(--espacio-pequeno) var(--espacio-grande);
   }
 
-  main {
-    padding: var(--espacio-grande);
-  }
-
   .portada {
     padding: var(--espacio-grande);
-  }
-
-  /* lo usa reservas.html */
-.reservas {
-    grid-template-columns: 2fr 1fr;
-  }
-
-  /* lo usa reservas.html */
-.fila {
-    grid-template-columns: 1fr 1fr;
   }
 
   fieldset {
@@ -522,11 +462,6 @@ footer a:hover {
   th,
   td {
     padding: var(--espacio-pequeno) var(--espacio-mediano);
-  }
-
-  footer {
-    flex-direction: row;
-    padding: var(--espacio-grande) var(--espacio-grande) var(--espacio-xl);
   }
 }
 

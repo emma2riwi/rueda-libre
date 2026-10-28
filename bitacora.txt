@@ -362,3 +362,28 @@ Conflictos que encontré con DevTools (Styles):
 Ninguno se resolvió con !important.
 
 Probado a 360px, 768px y 1280px: sin scroll horizontal, se mantienen Montserrat, Open Sans y los colores de marca.
+
+MINIRETO 8 · v2.0-beta: migración completa
+- Tarifas: container > row g-4. Las tablas van en col-12 col-lg-8 y las notas con el botón en col-12 col-lg-4 (dos columnas desde lg). Los estilos de tabla de la semana 1 se mantienen.
+- Reservas: el formulario en col-12 col-md-8 y la información de contacto en col-12 col-md-4 (8/4 desde md).
+  La fila documento + celular es row gx-3 con dos col-12 col-md-6. Todas las reglas de validación siguen iguales (probadas otra vez: 13 casos inválidos bloqueados).
+- Encabezado y pie: ahora la distribución la dan utilidades (d-flex flex-column flex-md-row justify-content-between align-items-center gap-3) en las 3 páginas.
+- styles.css limpio: ya no tiene display: flex ni display: grid. Solo quedan variables, tipografía, colores, tarjetas, botones, tablas, formulario y estados.
+
+Más conflictos con Bootstrap en tarifas y reservas:
+4. La leyenda del fieldset se salía del borde: el reboot de Bootstrap le pone float: left, width: 100% y un font-size grande.
+   Solución: en mi regla legend agregué float: none; width: auto; font-size: 1.125rem.
+5. El título de la tabla (caption) aparecía debajo de la tabla: Bootstrap pone caption-side: bottom.
+   Solución: caption { caption-side: top; }.
+6. Los títulos del aside salían enormes (Bootstrap: h2 2rem, h3 1.75rem). Solución: aside h2 y aside h3 con tamaño propio.
+
+COMPARATIVA FINAL v1.5 vs v2.0-beta
+- Líneas de styles.css: v1.5 = 550 (commit 988ca4d) · v2.0-beta = 477. Son 73 líneas menos.
+  Casi todo lo que se fue era distribución: grid, flex y las media queries de columnas.
+- Tiempo v1.5: ____   Tiempo v2.0-beta: ____   (completar)
+- Ventajas: los breakpoints ya vienen hechos, las columnas se arman rápido con clases, y el responsive casi no necesita media queries propias.
+- Desventajas: el HTML se llena de clases, hay que pelear con el reboot de Bootstrap (6 conflictos documentados), el sitio carga un CSS externo grande y algunos colores de marca no existen como utilidades.
+- Conclusión: (escribir con mis palabras)
+
+Revisado a 360px, 768px y 1280px: sin scroll horizontal en las 3 páginas.
+Pendiente: publicar la v2.0-beta.
