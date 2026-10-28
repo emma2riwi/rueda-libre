@@ -1,5 +1,3 @@
-
-
 :root {
   /* Tipografías */
   --fuente-principal: "Open Sans", Arial, sans-serif;
@@ -88,34 +86,30 @@ footer a:focus,
 main {
   max-width: 72rem;
   margin: 0 auto;
-  padding: var(--espacio-grande) var(--espacio-mediano);
+  padding: var(--espacio-mediano);
 }
 
 main section {
   margin-bottom: var(--espacio-grande);
 }
 
-/* Textos sueltos con un ancho cómodo de lectura */
 main section > p {
   max-width: 45rem;
 }
 
 
 /* ---------- 3. ENCABEZADO Y NAVEGACIÓN ---------- */
-/* Semana 2 · MiniReto 1: nombre en un extremo y menú en el otro (Flexbox) */
 header {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
   gap: var(--espacio-mediano);
   background-color: var(--azul-noche);
   color: var(--blanco);
-  padding: var(--espacio-mediano) var(--espacio-grande);
+  padding: var(--espacio-mediano);
   border-bottom: 4px solid var(--naranja-pedal);
 }
 
-/* Logo y nombre en fila, centrados verticalmente entre sí */
 .marca {
   display: flex;
   align-items: center;
@@ -132,10 +126,10 @@ header {
   font-size: 1.75rem;
 }
 
-/* Menú: contenedor flexible; el gap reemplaza los márgenes y el inline-block de la semana 1 */
 #menu {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: var(--espacio-pequeno);
   list-style: none;
   padding: 0;
@@ -145,7 +139,7 @@ header {
 /* Regla del compañero (MiniReto 10) adaptada a la paleta */
 #menu a {
   display: inline-block;
-  padding: var(--espacio-pequeno) var(--espacio-grande);
+  padding: var(--espacio-pequeno) var(--espacio-mediano);
   border: 2px solid var(--blanco);
   border-radius: var(--radio-pequeno);
   color: var(--blanco);
@@ -174,21 +168,20 @@ header {
 
 /* ---------- 4. COMPONENTES ---------- */
 
-/* Portada · Semana 2 MiniReto 3: dos columnas con Grid, texto centrado verticalmente */
 .portada {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   align-items: center;
   gap: var(--espacio-grande);
   min-height: 60vh;
-  padding: var(--espacio-grande);
+  padding: var(--espacio-grande) var(--espacio-mediano);
   border-radius: var(--radio);
   background-color: var(--azul-noche);
   color: var(--blanco);
 }
 
 .portada h2 {
-  font-size: 2.25rem;
+  font-size: 1.75rem;
   margin-top: 0;
 }
 
@@ -202,10 +195,9 @@ header {
   border-radius: var(--radio-pequeno);
 }
 
-/* Galería de rutas: tres tarjetas en una fila (Grid) */
 .rutas {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: var(--espacio-grande);
   margin-bottom: var(--espacio-mediano);
 }
@@ -238,14 +230,12 @@ header {
   margin: var(--espacio-mediano) 0 var(--espacio-pequeno);
 }
 
-/* Semana 2 · MiniReto 2: cuadrícula que se adapta sola (Grid, sin media queries) */
 .grilla {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
   gap: var(--espacio-grande);
 }
 
-/* Dentro de la grilla, cada tarjeta acomoda su contenido en columna (Flexbox) */
 .grilla .tarjeta {
   display: flex;
   flex-direction: column;
@@ -253,8 +243,6 @@ header {
   margin-bottom: 0;
 }
 
-/* margin-top: auto empuja el enlace al final de la tarjeta,
-   aunque las descripciones tengan largos distintos */
 .grilla .tarjeta > a:last-child {
   margin-top: auto;
   align-self: flex-start;
@@ -311,6 +299,7 @@ button:hover {
 /* Tablas */
 table {
   width: 100%;
+  font-size: 0.8125rem;
   border-collapse: collapse;
   margin: var(--espacio-mediano) 0;
   background-color: var(--blanco);
@@ -325,7 +314,7 @@ caption {
 th,
 td {
   border: 1px solid var(--borde);
-  padding: var(--espacio-pequeno) var(--espacio-mediano);
+  padding: var(--espacio-xs);
   text-align: left;
 }
 
@@ -346,27 +335,26 @@ aside {
 
 /* ---------- 5. FORMULARIO ---------- */
 
-/* Semana 2 · MiniReto 3: formulario e información de contacto en proporción 2:1 (Grid) */
 .reservas {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 1fr;
   align-items: start;
   gap: var(--espacio-grande);
 }
 
-/* Dos campos cortos en la misma fila (Grid) */
 .fila {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: var(--espacio-mediano);
 }
 
 .reservas aside h3 {
   margin-bottom: var(--espacio-pequeno);
 }
+
 fieldset {
   margin: 0 0 var(--espacio-grande);
-  padding: var(--espacio-grande);
+  padding: var(--espacio-mediano);
   border: 1px solid var(--borde);
   border-radius: var(--radio);
   background-color: var(--blanco);
@@ -443,16 +431,16 @@ select:focus:invalid {
 
 
 /* ---------- 6. PIE DE PÁGINA ---------- */
-/* Semana 2 · MiniReto 1: tres bloques en fila, alineados por arriba (Flexbox) */
 footer {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
   gap: var(--espacio-grande);
   background-color: var(--azul-noche);
   color: var(--blanco);
-  padding: var(--espacio-grande) var(--espacio-grande) var(--espacio-xl);
+  padding: var(--espacio-grande) var(--espacio-mediano) var(--espacio-xl);
   border-top: 4px solid var(--naranja-pedal);
 }
 
@@ -493,4 +481,70 @@ footer a:hover {
 
 .whatsapp:hover {
   border-color: var(--verde-ruta);
+}
+
+
+/* ---------- 8. RESPONSIVE ---------- */
+
+/* Tablet: desde 768px */
+@media (min-width: 768px) {
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--espacio-mediano) var(--espacio-grande);
+  }
+
+  #menu a {
+    padding: var(--espacio-pequeno) var(--espacio-grande);
+  }
+
+  main {
+    padding: var(--espacio-grande);
+  }
+
+  .portada {
+    grid-template-columns: 1fr 1fr;
+    padding: var(--espacio-grande);
+  }
+
+  .rutas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .reservas {
+    grid-template-columns: 2fr 1fr;
+  }
+
+  .fila {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  fieldset {
+    padding: var(--espacio-grande);
+  }
+
+  table {
+    font-size: 1rem;
+  }
+
+  th,
+  td {
+    padding: var(--espacio-pequeno) var(--espacio-mediano);
+  }
+
+  footer {
+    flex-direction: row;
+    padding: var(--espacio-grande) var(--espacio-grande) var(--espacio-xl);
+  }
+}
+
+/* Escritorio: desde 1200px */
+@media (min-width: 1200px) {
+  .portada {
+    padding: var(--espacio-xl) var(--espacio-grande);
+  }
+
+  .portada h2 {
+    font-size: 2.75rem;
+  }
 }

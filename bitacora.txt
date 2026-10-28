@@ -292,3 +292,19 @@ Criterio: si los elementos van en UNA sola dirección (fila o columna) -> Flexbo
    Tres bloques en una fila que pueden bajar de línea con flex-wrap; no necesito columnas fijas.
 
 Verificado: el menú, la flota y la validación del formulario siguen funcionando.
+
+MINIRETO 4 · v1.5 mobile-first
+- Ahora lo que está fuera de @media es la versión de celular (una columna).
+- @media (min-width: 768px): header en fila, portada 1fr 1fr, rutas en 3, reservas 2fr 1fr, fila del formulario en 2, pie en fila, tablas con letra normal.
+- @media (min-width: 1200px): la portada tiene más relleno y el título más grande.
+- En el celular el nombre va arriba y el menú abajo, centrado (flex-direction: column + justify-content: center en el menú).
+- Las imágenes no se salen porque img tiene max-width: 100% desde la semana 1.
+
+Problemas que encontré a 360px y cómo los resolví:
+1. index se salía a 395px de ancho: la portada seguía en 2 columnas. Solución: la base quedó en 1fr y las 2 columnas pasaron a la media query de 768px.
+2. tarifas se salía a 499px: la tabla de recorridos tiene 5 columnas y no cabía. Solución: en celular la letra de la tabla baja a 0.8125rem y el relleno de las celdas a 0.25rem; desde 768px vuelve el tamaño normal.
+3. reservas se salía a 521px: la grilla 2fr 1fr y la fila documento + celular no caben. Solución: en celular todo en una columna; el 2:1 y la fila doble empiezan en 768px.
+4. El menú con padding grande partía "Reservas" en otra línea. Solución: en celular los botones tienen menos padding a los lados.
+
+Revisado con modo dispositivo: 360px, 768px y 1280px sin scroll horizontal en las 3 páginas.
+Pendiente: publicar la v1.5 en GitHub Pages y abrirla en mi celular.
