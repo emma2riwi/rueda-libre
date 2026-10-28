@@ -174,8 +174,12 @@ header {
 
 /* ---------- 4. COMPONENTES ---------- */
 
-/* Portada */
+/* Portada · Semana 2 MiniReto 3: dos columnas con Grid, texto centrado verticalmente */
 .portada {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--espacio-grande);
   min-height: 60vh;
   padding: var(--espacio-grande);
   border-radius: var(--radio);
@@ -195,8 +199,24 @@ header {
 
 .portada img {
   width: 100%;
-  margin-top: var(--espacio-grande);
   border-radius: var(--radio-pequeno);
+}
+
+/* Galería de rutas: tres tarjetas en una fila (Grid) */
+.rutas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--espacio-grande);
+  margin-bottom: var(--espacio-mediano);
+}
+
+.rutas .tarjeta {
+  margin-bottom: 0;
+}
+
+.nivel {
+  margin: 0;
+  color: var(--gris-asfalto);
 }
 
 /* Tarjetas de servicios */
@@ -325,6 +345,25 @@ aside {
 
 
 /* ---------- 5. FORMULARIO ---------- */
+
+/* Semana 2 · MiniReto 3: formulario e información de contacto en proporción 2:1 (Grid) */
+.reservas {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: start;
+  gap: var(--espacio-grande);
+}
+
+/* Dos campos cortos en la misma fila (Grid) */
+.fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-mediano);
+}
+
+.reservas aside h3 {
+  margin-bottom: var(--espacio-pequeno);
+}
 fieldset {
   margin: 0 0 var(--espacio-grande);
   padding: var(--espacio-grande);

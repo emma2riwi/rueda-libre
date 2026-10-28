@@ -25,7 +25,7 @@
     </nav>
 </header>
 
-<main>
+<main class="reservas">
     <section>
         <h2>Reserva tu bicicleta</h2>
         <p>Llena el formulario y te confirmamos la reserva por correo. Los campos con <abbr title="obligatorio">*</abbr> son obligatorios.</p>
@@ -45,17 +45,19 @@
                         <option value="TI">Tarjeta de identidad</option>
                     </select>
                 </div>
-                <div class="campo">
-                    <label for="documento">Número de documento *</label>
-                    <input type="text" id="documento" name="documento" required inputmode="numeric" pattern="[0-9]{6,10}" title="Solo números, entre 6 y 10 dígitos" placeholder="123456789">
+                <div class="fila">
+                    <div class="campo">
+                        <label for="documento">Número de documento *</label>
+                        <input type="text" id="documento" name="documento" required inputmode="numeric" pattern="[0-9]{6,10}" title="Solo números, entre 6 y 10 dígitos" placeholder="123456789">
+                    </div>
+                    <div class="campo">
+                        <label for="telefono">Celular *</label>
+                        <input type="tel" id="telefono" name="telefono" required pattern="3[0-9]{9}" autocomplete="tel" title="Debe empezar por 3 y tener 10 dígitos" placeholder="3001234567">
+                    </div>
                 </div>
                 <div class="campo">
                     <label for="email">Correo electrónico *</label>
                     <input type="email" id="email" name="email" required autocomplete="email" placeholder="pepito@ejemplo.com">
-                </div>
-                <div class="campo">
-                    <label for="telefono">Celular *</label>
-                    <input type="tel" id="telefono" name="telefono" required pattern="3[0-9]{9}" autocomplete="tel" title="Debe empezar por 3 y tener 10 dígitos" placeholder="3001234567">
                 </div>
             </fieldset>
 
@@ -116,11 +118,17 @@
     </section>
 
     <aside>
-        <h2>Horario de atención</h2>
+        <h2>Información de contacto</h2>
+        <h3>Horario de atención</h3>
         <ul>
             <li>Lunes a viernes de 7:00 a. m. a 7:00 p. m.</li>
             <li>Sábados, domingos y festivos de 6:00 a. m. a 2:00 p. m.</li>
         </ul>
+        <h3>Escríbenos</h3>
+        <p><a href="mailto:contacto@ruedalibre.com">contacto@ruedalibre.com</a></p>
+        <p><a href="https://wa.me/573000000000" target="_blank" rel="noopener">WhatsApp: 300 000 0000</a></p>
+        <h3>Antes de venir</h3>
+        <p>Trae tu documento de identidad. Te confirmamos la reserva por correo en menos de 24 horas.</p>
     </aside>
 </main>
 

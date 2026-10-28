@@ -273,3 +273,22 @@ Columnas observadas (modo dispositivo de DevTools):
 - 900px: 3 columnas
 - 500px: 1 columna
 En las tres medidas, las tarjetas de una misma fila tienen la misma altura y los botones "Reservar" quedan alineados.
+
+MINIRETO 3 · Layout en dos dimensiones
+Criterio: si los elementos van en UNA sola dirección (fila o columna) -> Flexbox.
+          Si hay que controlar filas y columnas a la vez, o proporciones entre columnas -> Grid.
+
+1. Portada -> GRID (grid-template-columns: 1fr 1fr; align-items: center).
+   Son dos columnas con medidas definidas (mitad y mitad) y el texto centrado verticalmente frente a la foto.
+2. Galería "Nuestras rutas" -> GRID (repeat(3, 1fr)).
+   Tres tarjetas del mismo ancho; Grid las iguala sin calcular porcentajes.
+3. Reservas -> GRID (grid-template-columns: 2fr 1fr).
+   La proporción 2:1 se expresa directo con fr: el formulario recibe 2 partes y el contacto 1.
+4. Fila del formulario (documento + celular) -> GRID (1fr 1fr).
+   Quería que los dos campos midieran exactamente lo mismo; con Flexbox tendría que forzar anchos.
+5. Encabezado -> FLEXBOX.
+   Una sola fila: nombre a un lado y menú al otro (space-between); el ancho depende del contenido.
+6. Pie -> FLEXBOX.
+   Tres bloques en una fila que pueden bajar de línea con flex-wrap; no necesito columnas fijas.
+
+Verificado: el menú, la flota y la validación del formulario siguen funcionando.
